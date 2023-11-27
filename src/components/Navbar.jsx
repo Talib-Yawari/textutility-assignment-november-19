@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-export default function Navbar() {
+export default function Navbar(props) {
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className={`navbar navbar-expand-lg ${props.mode === 'light' ? 'bg-body-tertiary' : 'navbar-dark bg-dark'}`}>
                 <div className="container-fluid">
                     <a className="navbar-brand" href="/">Navbar</a>
                     <button
@@ -29,9 +29,13 @@ export default function Navbar() {
                                 <a className="nav-link" href="/">Pricing</a>
                             </li>
                         </ul>
+                        <div className="form-check form-switch ms-auto">
+                            <input className="form-check-input" type="checkbox" role="switch" onChange={props.modeChange} id="flexSwitchCheckDefault" />
+                            <label className={`form-check-label ${props.mode === 'light' ? '' : 'text-white'}`} htmlFor="flexSwitchCheckDefault">Change Dark Mode</label>
+                        </div>
                     </div>
                 </div>
             </nav>
         </>
-    )
+    );
 }

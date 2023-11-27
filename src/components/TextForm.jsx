@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function TextForm() {
+export default function TextForm(props) {
     const [text, setText] = useState('');
     const [letters, setLetters] = useState(0);
     const [words, setWords] = useState(0);
@@ -38,7 +38,7 @@ export default function TextForm() {
     return (
         <div className='container my-5'>
             <div className='row'>
-                <h1 className="text-center mb-4">Text Analyzer</h1>
+                <h1 className={`${props.mode === 'light' ? '' : 'text-white'}`}>Text Analyzer</h1>
             </div>
             <div className='row'>
                 <textarea className='form-control' rows="8" value={text} onChange={handleChange}></textarea>
